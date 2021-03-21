@@ -1,0 +1,149 @@
+
+Mybatis-generator
+1. generatorConfig.xml 文件
+	MySQL、Oracle jar包、链接地址、用户名密码、表名
+2. idea 安装 Mybatis-generator 插件
+3. pom 中配置插件
+	<build>
+        <plugins>
+            <!--Mybatis-generator插件,用于自动生成Mapper和POJO-->
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <!--配置文件的位置-->
+                    <configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>Generate MyBatis Artifacts</id>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.mybatis.generator</groupId>
+                        <artifactId>mybatis-generator-core</artifactId>
+                        <version>1.3.2</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
+
+
+
+
+没有 dao 的 bean：
+    使用yaml配置文件；
+    dao文件中使用@Mapper注解，或application启动文件中@MapperScan注解配置扫描包的路径 //@MapperScan("com.miaosha.base.dao")
+
+
+
+
+
+分布式session：
+token 写入到cookie，token 与 userinfo 存入redis，跳转时 cookie 加入到response，
+在同一个 session 中，cookie 会带入到下一个跳转页面。
+uuid->token->cookie->session
+           ->redis
+
+登录成功生成sessionId：类似token，表示用户，写到cookie中，传递给客户端，
+客户端随后的访问中在cookie中上传token，服务端拿到token后取到用户对应的session信息。
+
+
+
+两次MD5
+	1.用户端：PASS = MD5(明文+固定salt)
+	2.服务端：PASS = MD5(用户输入+随机salt)
+
+
+
+mybatis 全局加载 *.xml 配置：
+mybatis.mapperLocations = classpath*:com/miaosha/base/mapping/*.xml
+
+
+
+
+
+
+JMeter 使用入门
+1.添加线程组
+2.添加监听器->聚合报告
+3.线程组右键->添加Sampler->HTTP请求
+
+JMeter自定义变量
+1.测试计划->添加配置文件->CSV Data Set Config （新建配置文件，引用配置文件）
+2.引用变量${}
+
+JMeter命令行
+1.在Windows上录好jmx
+2.压测指令： sh jmeter.sh -n -t XXX.jmx -l result.jtl
+3.把result.jtl导入到JMeter
+
+Redis压测
+1.redis-benchmark -h 127.0.0.1 -p 6379 -c 100 -n 100000
+100个并发连接，100000个请求
+2.redis-benchmark -h 127.0.0.1 -p 6379 -q -d 100
+存取大小为100字节的数据包
+3.redis-benchmark -t set,lpush -q -n 100000
+只测试某些操作的性能（set、lpush 操作）
+4.redis-benchmark -n 100000 -q script load "redis.call('set', 'foo', 'bar')"
+只测试某些数值存取的性能（ redis.call('set', 'foo', 'bar') ）
+
+
+
+
+springboot 打 war 包：
+1.添加 spring-boot-starter-tomcat 的 provided (编译时)依赖
+2.添加 maven-war-plugin 插件
+
+
+
+
+
+
+页面优化技术：
+1.页面缓存+URL缓存+对象缓存；减少DB压力。  后端controller改造，以HTML格式数据输出。
+    页面缓存：缓存时间较短，变化不大的页面；
+        取缓存；
+        手动渲染模板；
+        结果输出；
+    URL缓存以及对象缓存：
+        更细粒度的缓存；service层存取对象缓存；
+        根据key拿到对象；redis token拿到缓存对象；
+
+2.页面静态化，前后端分离；
+3.静态资源优化； 图片 css js
+4.CDN优化
+
+
+
+
+
+分布式Session
+
+分布式会话：用户登陆、共享Session
+
+
+
+如何优化一个秒杀项目？
+http://www.zyiz.net/tech/detail-138250.html
+
+
+
+
+
+
+
+
+
+
+
+
+
