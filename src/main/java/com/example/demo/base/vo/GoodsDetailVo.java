@@ -1,6 +1,6 @@
-package com.example.demo.vo;
+package com.example.demo.base.vo;
 
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 
 public class GoodsDetailVo {
 	private int miaoshaStatus = 0;

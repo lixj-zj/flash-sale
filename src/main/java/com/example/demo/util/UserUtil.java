@@ -2,7 +2,7 @@ package com.example.demo.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 
 import java.io.*;
 import java.net.HttpURLConnection;

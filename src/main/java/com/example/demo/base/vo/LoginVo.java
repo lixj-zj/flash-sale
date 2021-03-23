@@ -1,4 +1,4 @@
-package com.example.demo.vo;
+package com.example.demo.base.vo;
 
 import com.example.demo.validator.IsMobile;
 import org.hibernate.validator.constraints.Length;

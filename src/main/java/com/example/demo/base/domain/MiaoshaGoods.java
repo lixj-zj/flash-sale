@@ -1,14 +1,25 @@
-package com.example.demo.vo;
-
-import com.example.demo.domain.Goods;
+package com.example.demo.base.domain;
 
 import java.util.Date;
 
-public class GoodsVo extends Goods {
-	private Double miaoshaPrice;
+public class MiaoshaGoods {
+	private Long id;
+	private Long goodsId;
 	private Integer stockCount;
 	private Date startDate;
 	private Date endDate;
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	public Long getGoodsId() {
+		return goodsId;
+	}
+	public void setGoodsId(Long goodsId) {
+		this.goodsId = goodsId;
+	}
 	public Integer getStockCount() {
 		return stockCount;
 	}
@@ -26,11 +37,5 @@ public class GoodsVo extends Goods {
 	}
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
-	}
-	public Double getMiaoshaPrice() {
-		return miaoshaPrice;
-	}
-	public void setMiaoshaPrice(Double miaoshaPrice) {
-		this.miaoshaPrice = miaoshaPrice;
 	}
 }

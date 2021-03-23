@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 import com.example.demo.service.MiaoshaUserService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.User;
+import com.example.demo.base.domain.User;
 import com.example.demo.redis.RedisService;
 import com.example.demo.redis.UserKey;
 import com.example.demo.result.CodeMsg;

@@ -1,7 +1,7 @@
 package com.example.demo.access;
 
 
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 
 public class UserContext {
 	

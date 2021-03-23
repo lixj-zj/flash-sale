@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.GoodsDao;
-import com.example.demo.domain.MiaoshaGoods;
-import com.example.demo.vo.GoodsVo;
+import com.example.demo.base.dao.GoodsDao;
+import com.example.demo.base.domain.MiaoshaGoods;
+import com.example.demo.base.vo.GoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

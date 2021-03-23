@@ -1,7 +1,7 @@
-package com.example.demo.vo;
+package com.example.demo.base.vo;
 
 
-import com.example.demo.domain.OrderInfo;
+import com.example.demo.base.domain.OrderInfo;
 
 public class OrderDetailVo {
 	private GoodsVo goods;

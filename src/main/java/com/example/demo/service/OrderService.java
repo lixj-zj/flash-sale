@@ -1,12 +1,12 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.OrderDao;
-import com.example.demo.domain.MiaoshaOrder;
-import com.example.demo.domain.MiaoshaUser;
-import com.example.demo.domain.OrderInfo;
+import com.example.demo.base.dao.OrderDao;
+import com.example.demo.base.domain.MiaoshaOrder;
+import com.example.demo.base.domain.MiaoshaUser;
+import com.example.demo.base.domain.OrderInfo;
 import com.example.demo.redis.OrderKey;
 import com.example.demo.redis.RedisService;
-import com.example.demo.vo.GoodsVo;
+import com.example.demo.base.vo.GoodsVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

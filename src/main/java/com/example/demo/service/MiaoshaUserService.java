@@ -1,14 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.dao.MiaoshaUserDao;
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.dao.MiaoshaUserDao;
+import com.example.demo.base.domain.MiaoshaUser;
 import com.example.demo.exception.GlobalException;
 import com.example.demo.redis.MiaoshaUserKey;
 import com.example.demo.redis.RedisService;
 import com.example.demo.result.CodeMsg;
 import com.example.demo.util.MD5Util;
 import com.example.demo.util.UUIDUtil;
-import com.example.demo.vo.LoginVo;
+import com.example.demo.base.vo.LoginVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
-package com.example.demo.dao;
+package com.example.demo.base.dao;
 
-import com.example.demo.domain.User;
+import com.example.demo.base.domain.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

@@ -1,7 +1,7 @@
 package com.example.demo.rabbitmq;
 
 
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 
 public class MiaoshaMessage {
 	private MiaoshaUser user;

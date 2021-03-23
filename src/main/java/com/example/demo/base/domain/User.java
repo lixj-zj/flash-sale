@@ -1,4 +1,4 @@
-package com.example.demo.domain;
+package com.example.demo.base.domain;
 
 public class User {
 	private int id;

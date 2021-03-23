@@ -3,7 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.redis.RedisService;
 import com.example.demo.result.Result;
 import com.example.demo.service.MiaoshaUserService;
-import com.example.demo.vo.LoginVo;
+import com.example.demo.base.vo.LoginVo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

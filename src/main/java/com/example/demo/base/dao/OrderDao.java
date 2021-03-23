@@ -1,7 +1,7 @@
-package com.example.demo.dao;
+package com.example.demo.base.dao;
 
-import com.example.demo.domain.MiaoshaOrder;
-import com.example.demo.domain.OrderInfo;
+import com.example.demo.base.domain.OrderInfo;
+import com.example.demo.base.domain.MiaoshaOrder;
 import org.apache.ibatis.annotations.*;
 
 

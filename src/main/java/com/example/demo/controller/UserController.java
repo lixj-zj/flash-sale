@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 import com.example.demo.redis.RedisService;
 import com.example.demo.result.Result;
 import com.example.demo.service.MiaoshaUserService;

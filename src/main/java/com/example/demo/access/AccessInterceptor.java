@@ -1,7 +1,7 @@
 package com.example.demo.access;
 
 import com.alibaba.fastjson.JSON;
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 import com.example.demo.redis.AccessKey;
 import com.example.demo.redis.RedisService;
 import com.example.demo.result.CodeMsg;

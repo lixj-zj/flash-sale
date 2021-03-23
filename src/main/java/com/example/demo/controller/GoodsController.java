@@ -1,14 +1,14 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.MiaoshaUser;
+import com.example.demo.base.domain.MiaoshaUser;
 import com.example.demo.redis.GoodsKey;
 import com.example.demo.redis.RedisService;
 import com.example.demo.result.CodeMsg;
 import com.example.demo.result.Result;
 import com.example.demo.service.GoodsService;
 import com.example.demo.service.MiaoshaUserService;
-import com.example.demo.vo.GoodsDetailVo;
-import com.example.demo.vo.GoodsVo;
+import com.example.demo.base.vo.GoodsDetailVo;
+import com.example.demo.base.vo.GoodsVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
