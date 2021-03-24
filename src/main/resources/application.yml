@@ -77,7 +77,7 @@ spring:
         max-active: 100
         max-idle: 100
         max-wait: 100
-    password:
+    password: 123456
 
   # static
   resources:
