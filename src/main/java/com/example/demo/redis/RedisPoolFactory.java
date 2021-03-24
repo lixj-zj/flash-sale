@@ -11,7 +11,7 @@ public class RedisPoolFactory {
 
 	@Autowired
 	RedisConfig redisConfig;
-	
+
 	@Bean
 	public JedisPool JedisPoolFactory() {
 		JedisPoolConfig poolConfig = new JedisPoolConfig();
@@ -22,5 +22,5 @@ public class RedisPoolFactory {
 				redisConfig.getTimeout()*1000, redisConfig.getPassword(), 0);
 		return jp;
 	}
-	
+
 }

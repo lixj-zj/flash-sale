@@ -1,11 +1,11 @@
 spring:
-  thymeleaf:
-    mode: LEGACYHTML5
-    encoding: utf-8
-    enabled: true
-    cache: true
-    suffix: .html
-    prefix: classpath:/templates/
+#  thymeleaf:
+#    mode: LEGACYHTML5
+#    encoding: utf-8
+#    enabled: true
+#    cache: true
+#    suffix: .html
+#    prefix: classpath:/pages/
 
   # 数据源
   datasource:
@@ -69,24 +69,24 @@ spring:
 
   # redis
   redis:
-    host: localhost
+    host: 192.168.100.100
     port: 6379
     timeout: 30000
-    jedis:
+    lettuce:
       pool:
         max-active: 100
         max-idle: 100
         max-wait: 100
     password: 123456
 
-  # static
-  resources:
-    static-locations: classpath:/static/
-    chain:
-      cache: true
-      compressed: true
-      html-application-cache: true
-      enabled: true
+#  # static
+#  resources:
+#    static-locations: classpath:/static/
+#    chain:
+#      cache: true
+#      compressed: true
+#      html-application-cache: true
+#      enabled: true
 
   # rabbitmq
 #  rabbitmq:

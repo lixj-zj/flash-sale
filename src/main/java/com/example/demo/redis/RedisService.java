@@ -13,10 +13,10 @@ import java.util.List;
 
 @Service
 public class RedisService {
-	
+
 	@Autowired
 	JedisPool jedisPool;
-	
+
 	/**
 	 * 获取当个对象
 	 * */
@@ -33,7 +33,7 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
-	
+
 	/**
 	 * 设置对象
 	 * */
@@ -58,7 +58,7 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
-	
+
 	/**
 	 * 判断key是否存在
 	 * */
@@ -73,7 +73,7 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
-	
+
 	/**
 	 * 删除
 	 * */
@@ -89,7 +89,7 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
-	
+
 	/**
 	 * 增加值
 	 * */
@@ -104,7 +104,7 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
-	
+
 	/**
 	 * 减少值
 	 * */
@@ -119,7 +119,7 @@ public class RedisService {
 			  returnToPool(jedis);
 		 }
 	}
-	
+
 	public boolean delete(KeyPrefix prefix) {
 		if(prefix == null) {
 			return false;
@@ -142,7 +142,7 @@ public class RedisService {
 			}
 		}
 	}
-	
+
 	public List<String> scanKeys(String key) {
 		Jedis jedis = null;
 		try {
@@ -168,7 +168,7 @@ public class RedisService {
 			}
 		}
 	}
-	
+
 	public static <T> String beanToString(T value) {
 		if(value == null) {
 			return null;

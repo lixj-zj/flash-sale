@@ -14,6 +14,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
+
+/**
+ * @Description: datasource数据源初始化
+ * --------------------------------------
+ * @ClassName: DruidConfig.java
+ * @Date: 2021/3/20 22:59
+ * @SoftWare: IntelliJ IDEA
+ * --------------------------------------
+ * @Author: lixj
+ * @Contact: lixj_zj@163.com
+ **/
 @Controller
 @RequestMapping("/login")
 public class LoginController {
