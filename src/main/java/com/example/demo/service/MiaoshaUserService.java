@@ -134,12 +134,13 @@ public class MiaoshaUserService {
 
     /**
      * 向response中添加cookie
+     * 延长token期限
      */
     private void addCookie(HttpServletResponse response, String token, MiaoshaUser user) {
         // 缓存token
         redisService.set(MiaoshaUserKey.token, token, user);
         Cookie cookie = new Cookie(COOKI_NAME_TOKEN, token);
-        // 设置cookie使用期限
+        // 设置cookie使用期限为两天
         cookie.setMaxAge(MiaoshaUserKey.token.expireSeconds());
         cookie.setPath("/");
         response.addCookie(cookie);

@@ -60,7 +60,7 @@ public class GoodsController {
      */
     /**
      * 跳转商品列表页
-     * */
+     */
     @RequestMapping(value = "/to_list", produces = "text/html")
     @ResponseBody
     public String list(HttpServletRequest request, HttpServletResponse response, Model model, MiaoshaUser user) {
@@ -73,31 +73,35 @@ public class GoodsController {
 
         List<GoodsVo> goodsList = goodsService.listGoodsVo();
         model.addAttribute("goodsList", goodsList);
-//    	 return "goods_list";
+
         WebContext springWebContext = new WebContext(request, response,
                 request.getServletContext(),
                 request.getLocale(), model.asMap());
-// 手动渲染
+        // 手动渲染页面
         html = thymeleafViewResolver.getTemplateEngine().process("goods_list", springWebContext);
         if (!StringUtils.isEmpty(html)) {
-            // 设置页面缓存 此时Redis中key: GoodsKey:gl
+            // 设置页面缓存 此时Redis中key为： GoodsKey:gl
             redisService.set(GoodsKey.getGoodsList, "", html);
         }
         return html;
     }
 
+
+    /**
+     *
+     */
     @RequestMapping(value = "/to_detail2/{goodsId}", produces = "text/html")
     @ResponseBody
     public String detail2(HttpServletRequest request, HttpServletResponse response, Model model, MiaoshaUser user,
                           @PathVariable("goodsId") long goodsId) {
         model.addAttribute("user", user);
 
-        //取缓存
+        // 取缓存
         String html = redisService.get(GoodsKey.getGoodsDetail, "" + goodsId, String.class);
         if (!StringUtils.isEmpty(html)) {
             return html;
         }
-        //手动渲染
+        // 手动渲染
         GoodsVo goods = goodsService.getGoodsVoByGoodsId(goodsId);
         model.addAttribute("goods", goods);
 
@@ -105,8 +109,10 @@ public class GoodsController {
         long endAt = goods.getEndDate().getTime();
         long now = System.currentTimeMillis();
 
-        int miaoshaStatus = 0;
+        // 倒计时
         int remainSeconds = 0;
+        // 秒杀状态
+        int miaoshaStatus = 0;
         if (now < startAt) {//秒杀还没开始，倒计时
             miaoshaStatus = 0;
             remainSeconds = (int) ((startAt - now) / 1000);
@@ -119,11 +125,11 @@ public class GoodsController {
         }
         model.addAttribute("miaoshaStatus", miaoshaStatus);
         model.addAttribute("remainSeconds", remainSeconds);
-//        return "goods_detail";
 
         WebContext springWebContext = new WebContext(request, response,
                 request.getServletContext(),
                 request.getLocale(), model.asMap());
+        // 手动渲染页面
         html = thymeleafViewResolver.getTemplateEngine().process("goods_detail", springWebContext);
         if (!StringUtils.isEmpty(html)) {
             // 设置页面缓存 此时Redis中key: GoodsKey:gd1 或者 GoodsKey:gd2
@@ -132,6 +138,11 @@ public class GoodsController {
         return html;
     }
 
+
+
+    /**
+     *
+     * */
     @RequestMapping(value = "/detail/{goodsId}")
     @ResponseBody
     public Result<GoodsDetailVo> detail(HttpServletRequest request, HttpServletResponse response, Model model, MiaoshaUser user,
@@ -145,6 +156,7 @@ public class GoodsController {
         long now = System.currentTimeMillis();
         long startAt = goods.getStartDate().getTime();
         long endAt = goods.getEndDate().getTime();
+
         // 秒杀状态
         int miaoshaStatus = 0;
         // 倒计时
@@ -159,6 +171,8 @@ public class GoodsController {
             miaoshaStatus = 1;
             remainSeconds = 0;
         }
+
+        // 构建秒杀商品和用户的vo
         GoodsDetailVo vo = new GoodsDetailVo();
         vo.setGoods(goods);
         vo.setUser(user);
