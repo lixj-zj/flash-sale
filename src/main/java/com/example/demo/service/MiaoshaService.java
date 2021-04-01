@@ -35,12 +35,13 @@ public class MiaoshaService {
 
 	@Transactional
 	public OrderInfo miaosha(MiaoshaUser user, GoodsVo goods) {
-		//减库存 下订单 写入秒杀订单
+		// 减库存 下订单 写入秒杀订单
 		boolean success = goodsService.reduceStock(goods);
 		if(success) {
-			//order_info maiosha_order
+			// order_info maiosha_order
 			return orderService.createOrder(user, goods);
 		}else {
+			// 无结束，缓存中设置无库存标志
 			setGoodsOver(goods.getId());
 			return null;
 		}
@@ -48,7 +49,8 @@ public class MiaoshaService {
 
 	public long getMiaoshaResult(Long userId, long goodsId) {
 		MiaoshaOrder order = orderService.getMiaoshaOrderByUserIdGoodsId(userId, goodsId);
-		if(order != null) {//秒杀成功
+		//秒杀成功
+		if(order != null) {
 			return order.getOrderId();
 		}else {
 			boolean isOver = getGoodsOver(goodsId);
